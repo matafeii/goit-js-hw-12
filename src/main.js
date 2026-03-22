@@ -66,7 +66,7 @@ searchForm.addEventListener('submit', async (e) => {
         position: 'topRight',
       });
     }
-  } catch (error) { 
+  } catch {
     hideLoader();
     iziToast.error({
       title: 'Error',
@@ -81,10 +81,11 @@ loadMoreBtn.addEventListener('click', async () => {
   hideLoadMoreButton();
   showLoader();
 
+  let data;
   try {
-    const data = await getImagesByQuery(searchQuery, page);
-  } catch (error) {
-    showLoadMoreButton();  // Показать кнопку обратно при ошибке
+    data = await getImagesByQuery(searchQuery, page);
+  } catch {
+    showLoadMoreButton();  
     hideLoader();
     iziToast.error({
       title: 'Error',
