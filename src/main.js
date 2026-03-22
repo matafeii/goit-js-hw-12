@@ -1,4 +1,5 @@
 import iziToast from 'izitoast';
+
 import 'izitoast/dist/css/iziToast.min.css';
 import { getImagesByQuery } from './js/pixabay-api.js';
 import {
@@ -65,7 +66,7 @@ searchForm.addEventListener('submit', async (e) => {
         position: 'topRight',
       });
     }
-  } catch (error) {
+  } catch (error) { 
     hideLoader();
     iziToast.error({
       title: 'Error',
